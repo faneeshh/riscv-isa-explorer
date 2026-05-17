@@ -1,6 +1,6 @@
 # riscv-isa-explorer
 
-CLI tool for the LFX Mentorship 2026 coding challenge: _Mapping the RISC-V Extensions Landscape_.
+CLI tool for the LFX Mentorship 2026 coding challenge.
 
 Parses `instr_dict.json` from [riscv-extensions-landscape](https://github.com/rpsene/riscv-extensions-landscape) and cross-references the extensions against the [RISC-V ISA manual](https://github.com/riscv/riscv-isa-manual).
 
@@ -16,12 +16,12 @@ Parses `instr_dict.json` from [riscv-extensions-landscape](https://github.com/rp
 git clone https://github.com/faneeshh/riscv-isa-explorer.git
 cd riscv-isa-explorer
 npm install
-npm run fetch    # pulls instr_dict.json and clones the ISA manual into ./data
+npm run fetch
 npm start
 npm test
 ```
 
-Requires Node 18+ and `git` on PATH.
+Requires Node 25 and `git` on PATH.
 
 ## Sample output
 
