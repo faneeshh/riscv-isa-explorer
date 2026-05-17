@@ -1,0 +1,20 @@
+{
+  "name": "riscv-isa-explorer",
+  "version": "0.1.0",
+  "description": "Parses the RISC-V instruction dictionary and cross-references it against the official ISA manual.",
+  "type": "module",
+  "main": "src/cli.js",
+  "bin": {
+    "riscv-isa-explorer": "src/cli.js"
+  },
+  "scripts": {
+    "fetch": "node scripts/fetch_data.js",
+    "start": "node src/cli.js",
+    "test": "node --test tests/"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "MIT",
+  "author": "Faneesh Juneja"
+}
