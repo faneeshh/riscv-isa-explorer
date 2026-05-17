@@ -8,7 +8,7 @@ Parses `instr_dict.json` from [riscv-extensions-landscape](https://github.com/rp
 
 - **Tier 1** — groups instructions by extension, prints a summary, and lists any instructions shared across multiple extensions.
 - **Tier 2** — scans the manual's AsciiDoc sources and reports which extensions appear in the JSON only, the manual only, or both.
-- **Tier 3** — prints an adjacency list of extensions that share at least one instruction.
+- **Tier 3** — lists the top extension pairs by shared-instruction count and writes a Graphviz DOT file for visual rendering.
 
 ## Running it
 
@@ -58,3 +58,4 @@ tests/*.test.js
 
 - Scanning uses regex, not a real AsciiDoc parser, so extensions mentioned only inside unrecognized table formats may be missed.
 - Matching is strict. `Zifence_i` in the manual won't match `zifencei` in the JSON — intentionally, since fuzzy matching would obscure the mismatches this tool is meant to surface.
+- The denylist of non-extension chapter names (Base, Crypto, Sh, Za, etc.) in `src/cross_reference.js` is curated by hand. If the manual adds a new non-extension chapter file, that name will show up as a false positive in the "manual only" report until the list is updated.
