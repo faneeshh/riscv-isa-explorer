@@ -76,6 +76,7 @@ function main() {
     }
     console.log();
     console.log(`(Showing top 20 of ${totalTags} tags.)`);
+    console.log("");
 
     console.log(
       `${multiExt.length} instructions belong to more than one extension.`,
