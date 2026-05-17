@@ -38,7 +38,7 @@ Tags in the JSON use forms like `rv_zba`, `rv64_zba`, `rv_d_zfa`, while the manu
 - Single-letter parts are uppercased (`i` → `I`); multi-letter parts get a leading capital (`zba` → `Zba`).
 - `rv32_zba` and `rv_zba` collapse to the same extension since they're XLEN variants, not distinct extensions.
 
-Manual scanning is whitelist-driven rather than extracting every capitalized word from the `.adoc` files (which would pull in "When", "Small", etc.). The candidate set comes from the JSON tags plus a short list of extensions the manual covers but the JSON doesn't yet include, and each token is matched with word boundaries.
+**Manual scanning is whitelist-driven.** Easy first instinct is to extract every capitalized word from the `.adoc` files. That picks up "When", "Small", "Some". Instead, candidates come from two sources: extensions normalized from the JSON, and filenames in the manual's `src/priv/` and `src/unpriv/` directories. Filenames are a strong signal — `smrnmi.adoc` documents `Smrnmi` — but some are general chapter names (`base.adoc`, `crypto.adoc`, `hypervisor.adoc`) or umbrella categories (`za.adoc`, `zb.adoc`). The cross-reference module keeps a small denylist of these so they don't pollute the "manual only" report. The list is documented inline in `src/cross_reference.js`.
 
 ## Layout
 
